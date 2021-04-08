@@ -29,9 +29,9 @@ const SideBar = (props) => {
       open={props.open}
       onClose={ props.onClose ? props.onClose: null }
     >
-    <div className={classes.toolbar}></div>
-    <Divider />
-    <Filters />
+      <div className={classes.toolbar}></div>
+      <Divider />
+      <Filters />
     </Drawer>
   );
 }

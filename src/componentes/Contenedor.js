@@ -21,10 +21,13 @@ const Contenedor = () => {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
 
+  const toggleOpen = () =>{
+    setOpen(!open);
+  }
 
   return (
     <div className={classes.root}>
-      <Header /> 
+      <Header toggleOpen={toggleOpen}/> 
       <Hidden xsDown>
         <SideBar variant='permanent' open={true}/>
       </Hidden>
@@ -32,7 +35,7 @@ const Contenedor = () => {
         <SideBar 
           variant='temporary' 
           open={open}
-          onClose= {}
+          onClose={ toggleOpen }
         />
       </Hidden>
       <div className={classes.content}>

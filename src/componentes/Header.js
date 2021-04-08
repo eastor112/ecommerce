@@ -89,7 +89,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const Header = () => {
+const Header = (props) => {
   const classes = useStyles();
 
   return (
@@ -97,7 +97,7 @@ const Header = () => {
       <AppBar className={classes.appBar} color='inherit' position="fixed">
         <Toolbar>
 
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={()=>{props.toggleOpen()}}>
             <MenuIcon />
           </IconButton>
 
