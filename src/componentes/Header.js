@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import clsx from 'clsx'
 import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -99,6 +99,9 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     textDecoration: 'none',
     color: 'black',
+  },
+  linkActive:{
+    color: '#0d6efd',
   }
 }));
 
@@ -115,12 +118,12 @@ const Header = (props) => {
           <IconButton edge="start" className={clsx(classes.menuButton, props.open && classes.hide)} color="inherit" aria-label="menu" onClick={()=>{props.toggleOpen()}}>
             <MenuIcon />
           </IconButton>
-          <Link to='/'>
+          <NavLink to='/'>
             <img src={ logo } alt="logo"/>
-          </Link>
+          </NavLink>
           <List className={classes.listHorizontal} component="nav">
 
-            <Link className={classes.links} to='/categorias'>
+            <NavLink className={classes.links} to='/categorias' activeClassName={classes.linkActive}>
               <ListItem className={classes.listItem} button>
                 <WidgetsOutlinedIcon />
                 <ListItemText>
@@ -129,9 +132,9 @@ const Header = (props) => {
                   </Typography>
                 </ListItemText>
               </ListItem>
-            </Link>
+            </NavLink>
 
-            <Link className={classes.links} to="/vende">
+            <NavLink className={classes.links} to="/vende" activeClassName={classes.linkActive}>
               <ListItem className={classes.listItem} button>
                 <LocalAtmOutlinedIcon />
                 <ListItemText>
@@ -140,9 +143,9 @@ const Header = (props) => {
                   </Typography>
                 </ListItemText>
               </ListItem>
-            </Link>
+            </NavLink>
               
-            <Link className={classes.links} to="/tienda">
+            <NavLink className={classes.links} to="/tienda" activeClassName={classes.linkActive}>
               <ListItem button className={classes.listItem}>
                 <StorefrontOutlinedIcon />
                 <ListItemText>
@@ -151,7 +154,7 @@ const Header = (props) => {
                   </Typography>
                 </ListItemText>
               </ListItem>
-            </Link>  
+            </NavLink>  
           </List>
           
           
@@ -172,23 +175,23 @@ const Header = (props) => {
           </div>
           <List className={classes.listHorizontal} component='div'>
 
-            <Link className={classes.links} to="/usuario">
+            <NavLink className={classes.links} to="/usuario" activeClassName={classes.linkActive}>
               <ListItem button>
                 <PermIdentityOutlinedIcon />
               </ListItem>
-            </Link>
+            </NavLink>
             
-            <Link className={classes.links} to="/deseos">
+            <NavLink className={classes.links} to="/deseos" activeClassName={classes.linkActive}>
               <ListItem button>
                 <FavoriteBorderOutlinedIcon />
               </ListItem>
-            </Link>
+            </NavLink>
             
-            <Link className={classes.links} to="/carrito">
+            <NavLink className={classes.links} to="/carrito" activeClassName={classes.linkActive}>
               <ListItem button>
                 <ShoppingCartOutlinedIcon />
               </ListItem>
-            </Link>
+            </NavLink>
           </List>
         </Toolbar>
       </AppBar>
