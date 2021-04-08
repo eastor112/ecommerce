@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import clsx from 'clsx'
 import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -87,16 +88,18 @@ const useStyles = makeStyles((theme) => ({
     padding:0
   },
   listItem: {
-    paddingRight: 0,
-    display: 'flex',
-    gap: 5,
+    padding: 0,
     width: '140px',
-    lineHeight: '0.5rem',
-    fontSize: '0.8rem'
   },
   hide: {
     display: 'none',
   },
+  links: {
+    display: 'flex',
+    alignItems: 'center',
+    textDecoration: 'none',
+    color: 'black',
+  }
 }));
 
 const Header = (props) => {
@@ -112,35 +115,45 @@ const Header = (props) => {
           <IconButton edge="start" className={clsx(classes.menuButton, props.open && classes.hide)} color="inherit" aria-label="menu" onClick={()=>{props.toggleOpen()}}>
             <MenuIcon />
           </IconButton>
-
-          <img src={ logo } alt="logo"/>
-
+          <Link to='/'>
+            <img src={ logo } alt="logo"/>
+          </Link>
           <List className={classes.listHorizontal} component="nav">
-            <ListItem className={classes.listItem} button>
-              <WidgetsOutlinedIcon />
-              <ListItemText>
-                <Typography variant="subtitle2" color="initial">
-                  Categorias
-                </Typography>
-              </ListItemText>
-            </ListItem>
-            <ListItem button className={classes.listItem}>
-              <LocalAtmOutlinedIcon />
-              <ListItemText>
-                <Typography variant="subtitle2" color="initial">
-                  Vende con nosotros
-                </Typography>
-              </ListItemText>
-            </ListItem>
-            <ListItem button className={classes.listItem}>
-              <StorefrontOutlinedIcon />
-              <ListItemText>
-                <Typography variant="subtitle2" color="initial">
-                  Ingresa a tu tienda
-                </Typography>
-              </ListItemText>
-            </ListItem>
+
+            <Link className={classes.links} to='/categorias'>
+              <ListItem className={classes.listItem} button>
+                <WidgetsOutlinedIcon />
+                <ListItemText>
+                  <Typography variant="subtitle2" color="initial">
+                    Categorias
+                  </Typography>
+                </ListItemText>
+              </ListItem>
+            </Link>
+
+            <Link className={classes.links} to="/vende">
+              <ListItem className={classes.listItem} button>
+                <LocalAtmOutlinedIcon />
+                <ListItemText>
+                  <Typography variant="subtitle2" color="initial">
+                    Vende con nosotros
+                  </Typography>
+                </ListItemText>
+              </ListItem>
+            </Link>
+              
+            <Link className={classes.links} to="/tienda">
+              <ListItem button className={classes.listItem}>
+                <StorefrontOutlinedIcon />
+                <ListItemText>
+                  <Typography variant="subtitle2" color="initial">
+                    Ingresa a tu tienda
+                  </Typography>
+                </ListItemText>
+              </ListItem>
+            </Link>  
           </List>
+          
           
           <div className={classes.grow} />
           
@@ -158,15 +171,24 @@ const Header = (props) => {
             </div>
           </div>
           <List className={classes.listHorizontal} component='div'>
-            <ListItem button>
-              <PermIdentityOutlinedIcon />
-            </ListItem>
-            <ListItem button>
-              <FavoriteBorderOutlinedIcon />
-            </ListItem>
-            <ListItem button>
-              <ShoppingCartOutlinedIcon />
-            </ListItem>
+
+            <Link className={classes.links} to="/usuario">
+              <ListItem button>
+                <PermIdentityOutlinedIcon />
+              </ListItem>
+            </Link>
+            
+            <Link className={classes.links} to="/deseos">
+              <ListItem button>
+                <FavoriteBorderOutlinedIcon />
+              </ListItem>
+            </Link>
+            
+            <Link className={classes.links} to="/carrito">
+              <ListItem button>
+                <ShoppingCartOutlinedIcon />
+              </ListItem>
+            </Link>
           </List>
         </Toolbar>
       </AppBar>
