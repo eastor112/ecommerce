@@ -1,6 +1,9 @@
 import React from 'react';
-import { makeStyles, Drawer, Divider } from '@material-ui/core'
+import { makeStyles, useTheme, Drawer, Divider, IconButton } from '@material-ui/core'
 import Filters from './Filters';
+
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
 const drawerWidth = 240;
 
@@ -12,11 +15,19 @@ const useStyles = makeStyles(theme => ({
   drawerPaper: {
     width: drawerWidth,
   },
+  drawerHeader: {
+    display: 'flex',
+    alignItems: 'center',
+    padding: theme.spacing(0, 1),
+    ...theme.mixins.toolbar,
+    justifyContent: 'flex-end',
+  },
   toolbar: theme.mixins.toolbar,
 }))
 
 const SideBar = (props) => {
   const classes = useStyles();
+  const theme = useTheme();
 
   return (
     <Drawer 
@@ -24,12 +35,18 @@ const SideBar = (props) => {
       classes={{
         paper: classes.drawerPaper,
       }}
+      BackdropProps={{ invisible: true }}
       anchor='left'
       variant={props.variant}
       open={props.open}
-      onClose={ props.onClose ? props.onClose: null }
     >
-      <div className={classes.toolbar}></div>
+      <div className={classes.drawerHeader}>
+        
+          <IconButton onClick={props.toggleOpen}>
+            {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+          </IconButton>
+        </div>
+
       <Divider />
       <Filters />
     </Drawer>

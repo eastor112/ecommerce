@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx'
 import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -17,12 +18,25 @@ import { IconButton, List, ListItem, ListItemText, withWidth } from '@material-u
 
 import logo from './../assets/images/logo.png'
 
+const drawerWidth = 240;
+
 const useStyles = makeStyles((theme) => ({
   menuButton: {
     marginRight: theme.spacing(2),
-    [theme.breakpoints.up('sm')]: {
-    display: 'none',
-    },
+  },
+  appBar: {
+    transition: theme.transitions.create(['margin', 'width'], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+  },
+  appBarShift: {
+    width: `calc(100% - ${drawerWidth}px)`,
+    marginLeft: drawerWidth,
+    transition: theme.transitions.create(['margin', 'width'], {
+      easing: theme.transitions.easing.easeOut,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
   },
   offset: theme.mixins.toolbar,
   grow: {
@@ -80,13 +94,9 @@ const useStyles = makeStyles((theme) => ({
     lineHeight: '0.5rem',
     fontSize: '0.8rem'
   },
-  // Para la barra lateral estática
-  appBar: {
-    [theme.breakpoints.up('sm')]: {
-      width: `calc(100% - ${240}px)`,
-      marginLeft: 240,
-    },
-  }
+  hide: {
+    display: 'none',
+  },
 }));
 
 const Header = (props) => {
@@ -94,10 +104,12 @@ const Header = (props) => {
 
   return (
     <div>
-      <AppBar className={classes.appBar} color='inherit' position="fixed">
+      <AppBar className={clsx(classes.appBar, {
+          [classes.appBarShift]: props.open,
+        })} color='inherit' position="fixed">
         <Toolbar>
 
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={()=>{props.toggleOpen()}}>
+          <IconButton edge="start" className={clsx(classes.menuButton, props.open && classes.hide)} color="inherit" aria-label="menu" onClick={()=>{props.toggleOpen()}}>
             <MenuIcon />
           </IconButton>
 
