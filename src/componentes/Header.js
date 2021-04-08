@@ -1,46 +1,167 @@
 import React from 'react';
-import logo from './../assets/images/logo.png';
+import { fade, makeStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import InputBase from '@material-ui/core/InputBase';
+import SearchIcon from '@material-ui/icons/Search';
+import WidgetsOutlinedIcon from '@material-ui/icons/WidgetsOutlined';
+import LocalAtmOutlinedIcon from '@material-ui/icons/LocalAtmOutlined';
+import StorefrontOutlinedIcon from '@material-ui/icons/StorefrontOutlined';
+import PermIdentityOutlinedIcon from '@material-ui/icons/PermIdentityOutlined';
+import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
+import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
+import MenuIcon from '@material-ui/icons/Menu';
+
+import { IconButton, List, ListItem, ListItemText, withWidth } from '@material-ui/core';
+
+import logo from './../assets/images/logo.png'
+
+const useStyles = makeStyles((theme) => ({
+  menuButton: {
+    marginRight: theme.spacing(2),
+    [theme.breakpoints.up('sm')]: {
+    display: 'none',
+    },
+  },
+  offset: theme.mixins.toolbar,
+  grow: {
+    flexGrow: 1,
+  },
+  title: {
+    display: 'none',
+    [theme.breakpoints.up('sm')]: {
+      display: 'block',
+    },
+  },
+  search: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    flexDirection: 'reverse',
+    position: 'relative',
+    border: 'solid 1px #666',
+    borderRadius: '30px',
+    backgroundColor: fade(theme.palette.common.white, 0.8),
+    '&:hover': {
+      backgroundColor: fade(theme.palette.common.white, 0.3),
+    },
+    width: '300px',
+    padding: 0
+  },
+  searchIcon: {
+    padding: theme.spacing(0, 2),
+    height: '100%',
+    pointerEvents: 'none',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  inputRoot: {
+    color: 'inherit',
+  },
+  inputInput: {
+    padding: theme.spacing(1, 1, 1, 0),
+    paddingLeft: '25px',
+    paddingRight: `calc(1em + ${theme.spacing(4)}px)`,
+    width: '100%',
+  },
+
+  listHorizontal: {
+    display: 'flex',
+    flexDirection: 'row',
+    padding:0
+  },
+  listItem: {
+    paddingRight: 0,
+    display: 'flex',
+    gap: 5,
+    width: '140px',
+    lineHeight: '0.5rem',
+    fontSize: '0.8rem'
+  },
+  // Para la barra lateral estática
+  appBar: {
+    [theme.breakpoints.up('sm')]: {
+      width: `calc(100% - ${240}px)`,
+      marginLeft: 240,
+    },
+  }
+}));
 
 const Header = () => {
+  const classes = useStyles();
+
   return (
-  <nav className="navbar navbar-expand-lg navbar-light bg-light">
-    <div className="container-fluid">
-      <a className="navbar-brand" href="!#"><img src={ logo } alt=""/></a>
-      <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span className="navbar-toggler-icon"></span>
-      </button>
-      <div className="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul className="navbar-nav me-auto mb-2 mb-lg-0 d-flex align-items-center">
-          <li className="nav-item me-4">
-            <a className="nav-link d-flex align-items-center" aria-current="page" href="!#"><i className="mx-1 fas fa-th"></i> Categorias</a>
-          </li>
-          <li className="nav-item me-4">
-            <a className="nav-link d-flex align-items-center" href="!#"><i className="mx-1 far fa-money-bill-alt"></i> Vende con nosotros</a>
-          </li>
-          <li className="nav-item me-4">
-            <a className="nav-link  d-flex align-items-center" href="!#"><i className="mx-1 fas fa-store-alt"></i> Ingresa a tu tienda</a>
-          </li>
-        </ul>
-        <form className="d-flex me-2">
-          <input className="form-control me-2" type="search" placeholder="buscar" aria-label="Search" />
-          <button className="btn btn-outline-success" type="submit">Buscar</button>
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0 d-flex">
-            <li className="nav-item mx-1">
-              <a className="nav-link" aria-current="page" href="!#"> <i className="far fa-user"></i> </a>
-            </li>
-            <li className="nav-item mx-1">
-              <a className="nav-link" href="!#"><i className="far fa-heart"></i> </a>
-            </li>
-            <li className="nav-item mx-1">
-              <a className="nav-link" href="!#"><i className="fas fa-shopping-cart"></i> </a>
-            </li>
-          </ul>
-        </form>
-        
+    <div>
+      <AppBar className={classes.appBar} color='inherit' position="fixed">
+        <Toolbar>
+
+          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+            <MenuIcon />
+          </IconButton>
+
+          <img src={ logo } alt="logo"/>
+
+          <List className={classes.listHorizontal} component="nav">
+            <ListItem className={classes.listItem} button>
+              <WidgetsOutlinedIcon />
+              <ListItemText>
+                <Typography variant="subtitle2" color="initial">
+                  Categorias
+                </Typography>
+              </ListItemText>
+            </ListItem>
+            <ListItem button className={classes.listItem}>
+              <LocalAtmOutlinedIcon />
+              <ListItemText>
+                <Typography variant="subtitle2" color="initial">
+                  Vende con nosotros
+                </Typography>
+              </ListItemText>
+            </ListItem>
+            <ListItem button className={classes.listItem}>
+              <StorefrontOutlinedIcon />
+              <ListItemText>
+                <Typography variant="subtitle2" color="initial">
+                  Ingresa a tu tienda
+                </Typography>
+              </ListItemText>
+            </ListItem>
+          </List>
+          
+          <div className={classes.grow} />
+          
+          <div className={classes.search}>
+            <InputBase
+              placeholder="Search…"
+              classes={{
+                root: classes.inputRoot,
+                input: classes.inputInput,
+              }}
+              inputProps={{ 'aria-label': 'search' }}
+            />
+            <div className={classes.searchIcon}>
+              <SearchIcon />
+            </div>
+          </div>
+          <List className={classes.listHorizontal} component='div'>
+            <ListItem button>
+              <PermIdentityOutlinedIcon />
+            </ListItem>
+            <ListItem button>
+              <FavoriteBorderOutlinedIcon />
+            </ListItem>
+            <ListItem button>
+              <ShoppingCartOutlinedIcon />
+            </ListItem>
+          </List>
+        </Toolbar>
+      </AppBar>
+      <div className={classes.offset}>
       </div>
     </div>
-  </nav>
   );
 }
 
-export default Header;
+export default withWidth()(Header);
