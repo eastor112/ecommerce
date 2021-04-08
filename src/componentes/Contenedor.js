@@ -8,13 +8,13 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import VendeConNosotros from '../Pages/VendeConNosotros/VendeConNosotros';
-import PaginaPrincipal from '../Pages/PaginaPrincipal/PaginaPrincipal';
-import IngresarTienda from '../Pages/IngresarTienda/IngresarTienda';
-import Categorias from '../Pages/Categorias.js/Categorias';
-import ListaDeseos from '../Pages/ListaDeseos.js/ListaDeseos';
-import Carrito from '../Pages/Carrito/Carrito';
-import Usuario from '../Pages/Usuario/Usuario';
+import VendeConNosotros from '../pages/vendeConNosotros/VendeConNosotros';
+import PaginaPrincipal from '../pages/paginaPrincipal/PaginaPrincipal';
+import IngresarTienda from '../pages/ingresarTienda/IngresarTienda';
+import Categorias from '../pages/categorias/Categorias';
+import ListaDeseos from '../pages/listaDeseos/ListaDeseos';
+import Carrito from '../pages/carrito/Carrito';
+import Usuario from '../pages/usuario/Usuario';
 
 const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
