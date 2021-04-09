@@ -8,13 +8,13 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import VendeConNosotros from '../pages/vendeConNosotros/VendeConNosotrosPage';
-import PaginaPrincipal from '../pages/paginaPrincipal/PrincipalPage';
-import IngresarTienda from '../pages/ingresarTienda/IngresarTiendaPage';
-import Categorias from '../pages/categorias/CategoriasPage';
-import ListaDeseos from '../pages/listaDeseos/ListaDeseosPage';
-import Carrito from '../pages/carrito/CarritoPage';
-import Usuario from '../pages/usuario/UsuarioPage';
+import VendeConNosotrosPage from '../pages/vendeConNosotros/VendeConNosotrosPage';
+import PrincipalPage from '../pages/paginaPrincipal/PrincipalPage';
+import IngresarTiendaPage from '../pages/ingresarTienda/IngresarTiendaPage';
+import CategoriasPage from '../pages/categorias/CategoriasPage';
+import ListaDeseosPage from '../pages/listaDeseos/ListaDeseosPage';
+import CarritoPage from '../pages/carrito/CarritoPage';
+import UsuarioPage from '../pages/usuario/UsuarioPage';
 
 const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
@@ -65,25 +65,25 @@ const Contenedor = () => {
           <div className={classes.toolbar}></div>
           <Switch>
             <Route path='/carrito'>
-              <Carrito />
+              <CarritoPage />
             </Route>
             <Route path='/deseos'>
-              <ListaDeseos />
+              <ListaDeseosPage />
             </Route>
             <Route path='/usuario'>
-              <Usuario />
+              <UsuarioPage />
             </Route>
             <Route path="/categorias">
-              <Categorias />
+              <CategoriasPage />
             </Route>
             <Route path="/vende">
-              <VendeConNosotros />
+              <VendeConNosotrosPage />
             </Route>
             <Route path="/tienda">
-              <IngresarTienda />
+              <IngresarTiendaPage />
             </Route>
             <Route path="/">
-              <PaginaPrincipal />
+              <PrincipalPage />
             </Route>
           </Switch>
         </div>
