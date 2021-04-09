@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Carrito = () => {
+const CarritoPage = () => {
   return (
     <div>
       Carrito de compras
@@ -8,4 +8,4 @@ const Carrito = () => {
   );
 }
 
-export default Carrito;
+export default CarritoPage;

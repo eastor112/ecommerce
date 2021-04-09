@@ -1,6 +1,6 @@
 import React from 'react';
 
-const VendeConNosotros = () => {
+const VendeConNosotrosPage = () => {
   return (
     <div>
       Vende con Nosotros
@@ -8,4 +8,4 @@ const VendeConNosotros = () => {
   );
 }
 
-export default VendeConNosotros;
+export default VendeConNosotrosPage;

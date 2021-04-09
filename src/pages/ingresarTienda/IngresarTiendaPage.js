@@ -1,6 +1,6 @@
 import React from 'react';
 
-const IngresarTienda = () => {
+const IngresarTiendaPage = () => {
   return (
     <div>
       Ingresar a mi Tienda
@@ -8,4 +8,4 @@ const IngresarTienda = () => {
   );
 }
 
-export default IngresarTienda;
+export default IngresarTiendaPage;

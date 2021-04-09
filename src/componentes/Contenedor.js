@@ -8,13 +8,13 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import VendeConNosotros from '../pages/vendeConNosotros/VendeConNosotros';
-import PaginaPrincipal from '../pages/paginaPrincipal/PaginaPrincipal';
-import IngresarTienda from '../pages/ingresarTienda/IngresarTienda';
-import Categorias from '../pages/categorias/Categorias';
-import ListaDeseos from '../pages/listaDeseos/ListaDeseos';
-import Carrito from '../pages/carrito/Carrito';
-import Usuario from '../pages/usuario/Usuario';
+import VendeConNosotros from '../pages/vendeConNosotros/VendeConNosotrosPage';
+import PaginaPrincipal from '../pages/paginaPrincipal/PrincipalPage';
+import IngresarTienda from '../pages/ingresarTienda/IngresarTiendaPage';
+import Categorias from '../pages/categorias/CategoriasPage';
+import ListaDeseos from '../pages/listaDeseos/ListaDeseosPage';
+import Carrito from '../pages/carrito/CarritoPage';
+import Usuario from '../pages/usuario/UsuarioPage';
 
 const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
@@ -58,7 +58,7 @@ const Contenedor = () => {
           open={open}
           toggleOpen={toggleOpen}
         />
-        
+
         <div className={clsx(classes.content, {
           [classes.contentShift]: open,
         })}>

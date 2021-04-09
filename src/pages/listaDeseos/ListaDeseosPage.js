@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ListaDeseos = () => {
+const ListaDeseosPage = () => {
   return (
     <div>
       Lista de Deseos
@@ -8,4 +8,4 @@ const ListaDeseos = () => {
   );
 }
 
-export default ListaDeseos;
+export default ListaDeseosPage;

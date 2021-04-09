@@ -1,6 +1,6 @@
 import React from 'react';
 
-const PaginaPrincipal = () => {
+const PrincipalPage = () => {
   return (
     <div>
       Pagina Principal
@@ -8,4 +8,4 @@ const PaginaPrincipal = () => {
   );
 }
 
-export default PaginaPrincipal;
+export default PrincipalPage;
